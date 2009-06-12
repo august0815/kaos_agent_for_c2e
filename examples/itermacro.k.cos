@@ -1,0 +1,12 @@
+doif type 4 le 1
+setv VA00 4
+elif type 4 eq 2
+sets VA00 4
+elif type 4 eq 3
+seta VA00 4
+endi
+reps 4
+outs "hello, world!\n"
+
+repe
+rscr

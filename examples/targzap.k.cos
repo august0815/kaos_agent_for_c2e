@@ -1,0 +1,5 @@
+targ norn
+setv VA00 velx
+kill norn
+outv VA00
+rscr

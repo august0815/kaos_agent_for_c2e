@@ -1,0 +1,18 @@
+setv VA00 sqrt 9.0
+
+setv VA01 1.0
+
+addv VA01 VA00
+divv VA01 2.0
+
+setv VA02 1.0
+
+subv VA02 VA00
+divv VA02 2.0
+
+outs "x1 = "
+outv VA01
+outs "\nx2 = "
+outv VA02
+outs "\n"
+rscr

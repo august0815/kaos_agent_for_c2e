@@ -1,0 +1,8 @@
+setv VA00 42
+doif 1 ne 0
+setv VA00 24
+outv VA00
+else
+endi
+outv VA00
+rscr

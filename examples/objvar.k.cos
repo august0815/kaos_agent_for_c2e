@@ -1,0 +1,7 @@
+enum 4 0 0
+seta VA00 targ
+setv avar targ 0 10
+outs avar targ 10
+
+next
+rscr

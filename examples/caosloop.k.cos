@@ -1,0 +1,8 @@
+setv VA00 4
+reps 4
+addv VA00 2
+setv VA01 VA00
+repe
+
+outv VA01
+rscr

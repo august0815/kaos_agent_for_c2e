@@ -1,0 +1,5 @@
+reps 4
+outs "Hello, world!\n"
+repe
+
+rscr

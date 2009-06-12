@@ -1,0 +1,13 @@
+// (x-1)(x+1) = x^2 - 2x - 1
+    numeric a = 1.0;
+    numeric b = -1.0;
+    numeric c = -2.0;
+    numeric discriminant = sqrt(b * b - a * c * 4.0);
+    numeric x1 = (0.0-b + discriminant) / (2*a);
+    numeric x2 = (0.0-b - discriminant) / (2*a);
+
+	print ("x1 = ");
+    print (x1);
+	print ("\nx2 = ");
+    print (x2);
+	print ("\n");

@@ -1,0 +1,28 @@
+setv VA00 99
+loop
+outs "\n"
+doif VA00 eq 1
+outs "One bottle of beer on the wall,\n"
+outs "One bottle of beer...\n"
+outs "Take it down, pass it around,\n"
+outs "No bottles of beer on the wall!\n"
+else
+outv VA00
+outs " bottles of beer on the wall,\n"
+outv VA00
+outs " bottles of beer...\n"
+outs "Take it down, pass it around,\n"
+doif VA00 gt 2
+setv VA01 VA00
+subv VA01 1
+outv VA01
+outs " bottles of beer on the wall!\n"
+else
+outs "One bottle of beer on the wall!\n"
+endi
+endi
+subv VA00 1
+untl VA00 eq 0
+
+outs "No more bottles of beer on the wall :(\n"
+rscr
