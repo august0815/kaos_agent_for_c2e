@@ -45,10 +45,7 @@ install {
 		simplemonitor.textformat(1 ,1, 1, 1, 1, 1, 0);	
 		simplemonitor.newbutton(3, "ds gui", 14, 77, 331, 0,  0 ,"[]", 2000, 1);
 		simplemonitor.newbutton(4, "ds gui", 16, 77, 331, 170,  0 ,"[]", 2001, 1);
-		new_name_of_hand("HALLO");
-		string c=whats_your_name();
-		prints(c);
-		     }
+		  }
      
 script (F_INVISIBLE, G_SYSTEM, S_SIMPLEMONITOR,2000) {agent a=owner;
  if (a.hidden==0) {a.velocity((-20),0);wait(15);velocity(a,(0),0);}
