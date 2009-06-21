@@ -1,0 +1,487 @@
+
+loop
+addv VA00 1
+new: comp 1 4 3002 "oraponge" 59 0 4200
+attr 197
+perm 100
+elas 0
+clac -1
+accg 1
+aero 5
+fric 100
+pose 4
+setv VA01 VA00
+mulv VA01 20
+addv VA01 1250
+mvto VA01 9500
+setv avar targ 1 399
+setv avar targ 5 8
+setv avar targ 61 55
+tick 10
+untl VA00 ge 2
+
+scrp 1 4 3003 9
+seta VA00 ownr
+doif avar ownr 0 eq 0
+seta VA01 VA00
+doif room ownr eq 9
+seta VA02 VA01
+setv VA03 avar VA02 86
+addv VA03 1
+setv avar ownr 86 VA03
+targ ownr
+loop
+seta VA04 VA01
+seta VA05 VA01
+doif avar ownr 86 ge 0 and avar ownr 86 le 6
+seta VA06 VA01
+setv VA07 avar VA06 87
+addv VA07 0.03
+
+setv avar ownr 87 VA07
+else
+endi
+seta VA08 VA01
+seta VA09 VA01
+doif avar ownr 86 gt 6 and avar ownr 86 lt 200
+seta VA10 VA01
+setv VA11 avar VA10 87
+addv VA11 0.08
+
+setv avar ownr 87 VA11
+else
+endi
+seta VA12 VA01
+accg avar ownr 87
+seta VA13 VA01
+seta VA14 VA01
+untl room ownr eq 9 or avar ownr 86 ge 200
+
+seta VA15 VA01
+doif avar ownr 86 gt 200
+wait rand 100 400
+kill ownr
+else
+endi
+else
+endi
+targ ownr
+doif room ownr ne 9
+setv avar ownr 86 0
+setv avar ownr 87 0
+else
+endi
+accg avar ownr 87
+seta VA16 VA00
+setv VA17 avar VA16 1
+addv VA17 2
+setv avar ownr 1 VA17
+seta VA18 VA00
+seta VA19 VA00
+doif avar ownr 99 eq 99 or avar ownr 1 gt 1500
+kill ownr
+else
+endi
+seta VA20 VA00
+seta VA21 VA00
+doif avar ownr 1 gt 1000 and avar ownr 1 lt 1500
+targ ownr
+accg 0.5
+
+setv avar ownr 0 1
+else
+endi
+targ ownr
+anim [ 0 1 2 3 255 ]
+else
+endi
+doif avar ownr 0 ne 0
+targ ownr
+setv VA22 posl
+targ ownr
+setv VA23 post
+new: comp 1 4 3002 "oraponge" 59 0 4200
+seta VA24 targ
+attr 192
+perm 100
+elas 20
+clac -1
+accg 1
+aero 5
+fric 100
+pose 4
+setv VA25 tmvt VA22 VA23
+doif VA25 eq 1
+seta VA26 VA24
+targ VA26
+mvto VA22 VA23
+else
+seta VA27 VA24
+kill VA27
+stop
+endi
+targ VA24
+setv avar VA24 1 0
+setv avar VA24 5 0
+setv avar VA24 61 50
+tick 5
+slow
+kill ownr
+else
+endi
+loop
+setv avar ownr 10 rand -2 2
+untl avar ownr 10 ne 0
+
+setv VA28 obst down
+doif VA28 lt 500
+loop
+setv avar ownr 11 rand -1 1
+seta VA29 VA00
+untl avar ownr 11 ne 0
+
+else
+endi
+doif VA28 gt 500
+loop
+setv avar ownr 11 rand -1 2
+untl avar ownr 11 ne 0
+
+else
+endi
+setv VA30 obst _up_
+setv VA31 obst down
+setv VA32 obst left
+setv VA33 obst rght
+doif VA31 lt 20 and VA30 gt 200
+targ ownr
+accg 3
+setv avar ownr 10 1
+wait 10
+stop
+else
+endi
+targ ownr
+doif VA31 lt 20 and VA30 le 200
+setv avar ownr 11 -1
+else
+endi
+doif VA32 lt 50
+setv avar ownr 10 rand 2 2
+else
+endi
+doif VA33 lt 50
+setv avar ownr 10 rand -2 -1
+else
+endi
+doif VA30 lt 20
+setv avar ownr 11 2
+else
+endi
+velo avar ownr 10 avar ownr 11
+endm
+
+scrp 1 4 3002 9
+seta VA00 ownr
+setv VA01 avar VA00 1
+addv VA01 1
+setv avar ownr 1 VA01
+doif room ownr eq 9
+seta VA02 VA00
+targ ownr
+seta VA03 carr
+doif VA03 ne null
+setv avar ownr 99 99
+else
+seta VA04 ownr
+doif avar ownr 5 eq 0
+targ ownr
+base 0
+targ ownr
+frat 3
+anim [ 4 ]
+else
+endi
+seta VA05 ownr
+doif avar ownr 5 eq 1
+targ ownr
+base 0
+targ ownr
+frat 3
+anim [ 5 4 ]
+else
+endi
+seta VA06 ownr
+seta VA07 ownr
+doif avar ownr 5 eq 9 or avar ownr 5 eq 10
+targ ownr
+base 0
+frat 5
+anim [ 49 39 29 19 9 8 7 6 5 4 ]
+else
+endi
+kill ownr
+endi
+else
+endi
+doif avar ownr 1 gt 700
+seta VA08 VA00
+targ ownr
+seta VA09 carr
+doif VA09 ne null
+setv avar ownr 99 99
+else
+seta VA10 ownr
+doif avar ownr 5 eq 0
+targ ownr
+base 0
+targ ownr
+frat 3
+anim [ 4 ]
+else
+endi
+seta VA11 ownr
+doif avar ownr 5 eq 1
+targ ownr
+base 0
+targ ownr
+frat 3
+anim [ 5 4 ]
+else
+endi
+seta VA12 ownr
+seta VA13 ownr
+doif avar ownr 5 eq 9 or avar ownr 5 eq 10
+targ ownr
+base 0
+frat 5
+anim [ 49 39 29 19 9 8 7 6 5 4 ]
+else
+endi
+kill ownr
+endi
+else
+endi
+doif avar ownr 1 gt 0 and avar ownr 1 lt 25
+targ ownr
+pose 4
+setv avar ownr 5 0
+else
+endi
+doif avar ownr 1 ge 25 and avar ownr 1 lt 75 and avar ownr 5 eq 0
+targ ownr
+pose 5
+setv avar ownr 5 1
+else
+endi
+doif avar ownr 1 ge 75 and avar ownr 1 lt 100 and avar ownr 5 eq 1
+targ ownr
+pose 6
+setv avar ownr 5 2
+else
+endi
+doif avar ownr 1 ge 100 and avar ownr 1 lt 150 and avar ownr 5 eq 2
+targ ownr
+pose 7
+setv avar ownr 5 3
+else
+endi
+doif avar ownr 1 ge 150 and avar ownr 1 lt 200 and avar ownr 5 eq 3
+targ ownr
+pose 8
+setv avar ownr 5 4
+else
+endi
+doif avar ownr 1 ge 200 and avar ownr 1 lt 250 and avar ownr 5 eq 4
+targ ownr
+base 9
+setv avar ownr 5 5
+else
+endi
+doif avar ownr 1 ge 250 and avar ownr 1 lt 300 and avar ownr 5 eq 5
+targ ownr
+base 19
+setv avar ownr 5 6
+else
+endi
+doif avar ownr 1 ge 300 and avar ownr 1 lt 350 and avar ownr 5 eq 6
+targ ownr
+base 29
+setv avar ownr 5 7
+else
+endi
+doif avar ownr 1 ge 350 and avar ownr 1 lt 400 and avar ownr 5 eq 7
+targ ownr
+base 39
+setv avar ownr 5 8
+else
+endi
+doif avar ownr 1 ge 400 and avar ownr 1 lt 450 and avar ownr 5 eq 8
+targ ownr
+base 49
+setv avar ownr 5 9
+else
+endi
+doif avar ownr 5 gt 4 and avar ownr 5 lt 10
+targ ownr
+anim [ 0 1 2 3 4 5 6 7 8 9 255 ]
+else
+endi
+doif avar ownr 1 gt 700
+kill ownr
+else
+endi
+doif avar ownr 5 gt 0 or avar ownr 5 lt 2
+seta VA14 VA00
+
+doif VA15 eq 0
+rnge 500
+esee 1 4 3002
+setv VA16 1
+next
+doif VA16 gt 7
+kill ownr
+else
+endi
+setv VA15 1
+else
+endi
+doif VA15 eq 1
+etch 1 4 3002
+next
+doif 1 gt 2
+kill ownr
+else
+endi
+else
+endi
+else
+endi
+doif avar ownr 5 eq 10
+seta VA17 VA00
+setv VA18 avar VA17 40
+addv VA18 1
+setv avar ownr 40 VA18
+seta VA19 VA00
+doif avar ownr 40 eq 20
+setv avar ownr 5 9
+else
+endi
+else
+endi
+doif avar ownr 5 eq 9
+doif 10 ne 0
+
+seta VA21 ownr
+targ ownr
+setv VA22 posl
+addv VA22 2
+setv VA23 post
+subv VA23 58
+setv VA24 70
+rnge 500
+
+esee 1 4 3003 addv VA25 1 next
+doif VA25 le 4
+setv VA20 rand 1 3
+else
+endi
+doif VA25 ge 5 and VA25 le 7
+setv VA20 rand 1 2
+else
+endi
+doif VA25 ge 8 and VA25 le 10
+setv VA20 1
+else
+endi
+doif VA25 gt 10
+setv VA20 0
+seta VA26 VA21
+targ ownr
+seta VA27 carr
+doif VA27 ne null
+setv avar ownr 99 99
+else
+seta VA28 ownr
+doif avar ownr 5 eq 0
+targ ownr
+base 0
+targ ownr
+frat 3
+anim [ 4 ]
+else
+endi
+seta VA29 ownr
+doif avar ownr 5 eq 1
+targ ownr
+base 0
+targ ownr
+frat 3
+anim [ 5 4 ]
+else
+endi
+seta VA30 ownr
+seta VA31 ownr
+doif avar ownr 5 eq 9 or avar ownr 5 eq 10
+targ ownr
+base 0
+frat 5
+anim [ 49 39 29 19 9 8 7 6 5 4 ]
+else
+endi
+kill ownr
+endi
+stop
+else
+endi
+doif VA20 gt 0
+new: comp 1 4 3003 "oraponge" 4 0 5000
+seta VA21 targ
+attr 199
+bhvr 32
+perm 100
+elas 0
+clac -1
+accg 0
+aero 0
+fric 100
+setv VA32 tmvt VA22 VA23
+doif VA32 eq 1
+seta VA33 VA21
+targ VA33
+mvto VA22 VA23
+else
+seta VA34 VA21
+kill VA34
+stop
+endi
+seta VA35 VA21
+targ VA35
+velo VA25 -3
+seta VA36 VA21
+setv avar VA36 1 0
+seta VA37 VA21
+setv avar VA37 5 0
+seta VA38 VA21
+setv avar VA38 61 20
+tick 1
+else
+endi
+setv avar VA21 5 10
+else
+endi
+else
+endi
+endm
+
+rscr
+enum 1 4 3002
+kill targ
+
+next
+enum 1 4 3003
+kill targ
+
+next
+scrx 1 4 3002 9
+scrx 1 4 3003 9

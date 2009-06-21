@@ -1,0 +1,13 @@
+Re-implement of oprange sponge.cos from C3
+
+needs oraponge.c16 from C3 images
+
+It is not exactly the same as in C3. 
+TODO orange.k:
+
+    * Lifecycle of orange sponge fine tuning
+    * Seed ,C3 like growing conditions.(there are some little bugs in the if conditions.) 
+TODO mymacro.k:
+
+    * make the script more general,(for using with other plants)
+    * document the macros. 
